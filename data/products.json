@@ -1,0 +1,62 @@
+[
+  {
+    "id": 1,
+    "name": "Hũ gạo gốm sứ Bát Tràng cao cấp 10kg",
+    "price": "450.000đ",
+    "description": "Hũ gạo truyền thống, giữ gạo tươi ngon, chống ẩm mốc, họa tiết rồng phượng"
+  },
+  {
+    "id": 2,
+    "name": "Lục bình gốm sứ hoa sen 40cm",
+    "price": "320.000đ", 
+    "description": "Lục bình trang trí, họa tiết hoa sen, màu xanh ngọc, phong thủy tốt"
+  },
+  {
+    "id": 3,
+    "name": "Mai bình gốm sứ cổ điển 35cm",
+    "price": "280.000đ",
+    "description": "Mai bình cắm hoa, thiết kế cổ điển, màu nâu gốm, phù hợp mọi không gian"
+  },
+  {
+    "id": 4,
+    "name": "Bộ tách trà gốm sứ 6 người",
+    "price": "380.000đ",
+    "description": "Bộ tách trà cao cấp, 1 ấm + 6 tách, họa tiết trúc mai, quà tặng sang trọng"
+  },
+  {
+    "id": 5,
+    "name": "Hũ gạo mini trang trí 3kg",
+    "price": "180.000đ",
+    "description": "Hũ gạo nhỏ gọn, phù hợp gia đình ít người, họa tiết hoa cúc"
+  },
+  {
+    "id": 6,
+    "name": "Lục bình gốm men crackle 50cm", 
+    "price": "520.000đ",
+    "description": "Lục bình cao cấp, men crackle độc đáo, tạo vết nứt tự nhiên, nghệ thuật"
+  },
+  {
+    "id": 7,
+    "name": "Bộ đồ thờ gốm sứ 5 món",
+    "price": "680.000đ",
+    "description": "Bộ đồ thờ truyền thống: đỉnh, lọ hoa, chén, dĩa, nến, màu nâu cổ"
+  },
+  {
+    "id": 8,
+    "name": "Mai bình quà tặng khắc tên",
+    "price": "350.000đ", 
+    "description": "Mai bình có thể khắc tên, logo công ty, quà tặng doanh nghiệp ý nghĩa"
+  },
+  {
+    "id": 9,
+    "name": "Hũ đựng gia vị bộ 3 món",
+    "price": "220.000đ",
+    "description": "Bộ 3 hũ đựng muối, đường, tiêu, size nhỏ xinh, nắp đậy kín"
+  },
+  {
+    "id": 10,
+    "name": "Lục bình cặp rồng phượng 45cm",
+    "price": "850.000đ",
+    "description": "Cặp lục bình rồng phượng, quà cưới truyền thống, ý nghĩa hạnh phúc viên mãn"
+  }
+]
