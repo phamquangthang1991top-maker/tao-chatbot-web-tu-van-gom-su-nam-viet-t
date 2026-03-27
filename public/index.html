@@ -1,0 +1,297 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gốm Sứ Nam Việt - Tư vấn online</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #8B4513, #A0522D);
+            min-height: 100vh;
+            color: white;
+        }
+        
+        .header {
+            text-align: center;
+            padding: 2rem;
+            background: rgba(0,0,0,0.3);
+        }
+        
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 0.5rem;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
+        }
+        
+        /* Chat Widget */
+        .chat-widget {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 350px;
+            height: 500px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+            z-index: 1000;
+            display: none;
+            flex-direction: column;
+            overflow: hidden;
+        }
+        
+        .chat-header {
+            background: #8B4513;
+            color: white;
+            padding: 15px;
+            font-weight: bold;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .close-btn {
+            background: none;
+            border: none;
+            color: white;
+            font-size: 20px;
+            cursor: pointer;
+        }
+        
+        .chat-messages {
+            flex: 1;
+            overflow-y: auto;
+            padding: 10px;
+            background: #f5f5f5;
+        }
+        
+        .message {
+            margin: 10px 0;
+            padding: 10px;
+            border-radius: 10px;
+            max-width: 80%;
+        }
+        
+        .user-message {
+            background: #007bff;
+            color: white;
+            margin-left: auto;
+        }
+        
+        .bot-message {
+            background: white;
+            color: #333;
+            border: 1px solid #ddd;
+        }
+        
+        .chat-input {
+            display: flex;
+            padding: 10px;
+            background: white;
+            border-top: 1px solid #ddd;
+        }
+        
+        .chat-input input {
+            flex: 1;
+            padding: 10px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            outline: none;
+        }
+        
+        .chat-input button {
+            padding: 10px 15px;
+            background: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            margin-left: 10px;
+            cursor: pointer;
+        }
+        
+        /* Quick Buttons */
+        .quick-buttons {
+            padding: 10px;
+            display: flex;
+            flex-wrap: wrap;
+            gap: 5px;
+        }
+        
+        .quick-btn {
+            padding: 5px 10px;
+            background: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 15px;
+            font-size: 12px;
+            cursor: pointer;
+        }
+        
+        /* Chat Toggle Button */
+        .chat-toggle {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            width: 60px;
+            height: 60px;
+            background: #8B4513;
+            color: white;
+            border: none;
+            border-radius: 50%;
+            font-size: 24px;
+            cursor: pointer;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.3);
+            z-index: 999;
+        }
+        
+        .main-content {
+            text-align: center;
+            padding: 3rem;
+        }
+        
+        .features {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+        
+        .feature-card {
+            background: rgba(255,255,255,0.1);
+            padding: 2rem;
+            border-radius: 10px;
+            backdrop-filter: blur(10px);
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>🏺 Gốm Sứ Nam Việt</h1>
+        <p>23 năm kinh nghiệm - Chất lượng từ đất Việt</p>
+    </div>
+    
+    <div class="main-content">
+        <h2>Chào mừng đến với Gốm Sứ Nam Việt!</h2>
+        <p>Click vào icon chat góc phải để được tư vấn miễn phí</p>
+        
+        <div class="features">
+            <div class="feature-card">
+                <h3>🏺 Hũ Gạo Cao Cấp</h3>
+                <p>Bảo quản gạo tươi ngon, thiết kế truyền thống</p>
+            </div>
+            <div class="feature-card">
+                <h3>🌸 Lục Bình Nghệ Thuật</h3>
+                <p>Trang trí nhà cửa, phong thủy tốt</p>
+            </div>
+            <div class="feature-card">
+                <h3>🎁 Quà Tặng Ý Nghĩa</h3>
+                <p>Quà tặng truyền thống, giá trị văn hóa</p>
+            </div>
+        </div>
+    </div>
+    
+    <!-- Chat Toggle Button -->
+    <button class="chat-toggle" onclick="toggleChat()">💬</button>
+    
+    <!-- Chat Widget -->
+    <div class="chat-widget" id="chatWidget">
+        <div class="chat-header">
+            <span>Tư vấn Gốm Sứ Nam Việt</span>
+            <button class="close-btn" onclick="toggleChat()">×</button>
+        </div>
+        
+        <div class="quick-buttons">
+            <button class="quick-btn" onclick="sendQuickMessage('Sản phẩm bán chạy nhất?')">Bán chạy</button>
+            <button class="quick-btn" onclick="sendQuickMessage('Hũ gạo giá bao nhiêu?')">Hũ gạo</button>
+            <button class="quick-btn" onclick="sendQuickMessage('Có quà tặng nào đặc biệt?')">Quà tặng</button>
+            <button class="quick-btn" onclick="sendQuickMessage('Vận chuyển như thế nào?')">Vận chuyển</button>
+        </div>
+        
+        <div class="chat-messages" id="chatMessages">
+            <div class="message bot-message">
+                Chào anh/chị! Em là tư vấn viên gốm sứ Nam Việt. Anh chị cần tư vấn sản phẩm gì ạ? 😊
+            </div>
+        </div>
+        
+        <div class="chat-input">
+            <input type="text" id="messageInput" placeholder="Nhập tin nhắn..." onkeypress="handleEnter(event)">
+            <button onclick="sendMessage()">Gửi</button>
+        </div>
+    </div>
+    
+    <script>
+        // Generate session ID
+        const sessionId = 'session_' + Date.now();
+        
+        function toggleChat() {
+            const widget = document.getElementById('chatWidget');
+            widget.style.display = widget.style.display === 'flex' ? 'none' : 'flex';
+        }
+        
+        function handleEnter(event) {
+            if (event.key === 'Enter') {
+                sendMessage();
+            }
+        }
+        
+        function sendQuickMessage(message) {
+            addMessage(message, 'user');
+            callChatAPI(message);
+        }
+        
+        async function sendMessage() {
+            const input = document.getElementById('messageInput');
+            const message = input.value.trim();
+            
+            if (!message) return;
+            
+            addMessage(message, 'user');
+            input.value = '';
+            
+            await callChatAPI(message);
+        }
+        
+        function addMessage(text, sender) {
+            const messagesDiv = document.getElementById('chatMessages');
+            const messageDiv = document.createElement('div');
+            messageDiv.className = `message ${sender}-message`;
+            messageDiv.textContent = text;
+            messagesDiv.appendChild(messageDiv);
+            messagesDiv.scrollTop = messagesDiv.scrollHeight;
+        }
+        
+        async function callChatAPI(message) {
+            try {
+                // Hiển thị typing indicator
+                addMessage('Đang trả lời...', 'bot');
+                
+                const response = await fetch('/api/chat', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        message: message,
+                        sessionId: sessionId
+                    })
+                });
+                
+                const data = await response.json();
+                
+                // Xóa typing indicator
+                const messages = document.getElementById('chatMessages');
+                messages.removeChild(messages.lastChild);
+                
+                // Thêm phản hồi từ bot
+                addMessage(data.reply, 'bot');
+                
+            } catch (error) {
+                console.error('Lỗi:', error);
+                addMessage('Xin lỗi, có lỗi xảy ra. Vui lòng thử lại!', 'bot');
+            }
+        }
+    </script>
+</body>
+</html>
